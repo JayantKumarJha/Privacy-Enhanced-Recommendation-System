@@ -238,18 +238,23 @@ use_sample = st.sidebar.checkbox("Use sample MovieLens (small) ratings.dat file"
 # 3::1193::4::978220179
 # 3::661::5::978220179
 # """
+if use_sample:
     uploaded_file = StringIO(sample_text)
     st.sidebar.write("Using a tiny embedded sample. For better learning, upload the MovieLens 100k ratings.dat.")
 else:
-    uploaded_file = st.sidebar.file_uploader("Upload ratings.dat (MovieLens style)", type=['dat', 'csv', 'txt'])
+    uploaded_file = st.sidebar.file_uploader(
+        "Upload ratings.dat (MovieLens style)", 
+        type=['dat', 'csv', 'txt']
+    )
     if uploaded_file is None:
         st.warning("Upload a ratings.dat file or select the sample option from the sidebar.")
         st.stop()
 
 # Read and show raw data
 df_raw = read_ratings(uploaded_file)
-st.subheader("Raw ratings (first rows)")
+st.subheader("Raw ratings (first few rows)")
 st.dataframe(df_raw.head())
+
 
 # Data cleaning / prep
 st.markdown("### Step 1 — Data preparation & remapping IDs")
