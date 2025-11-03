@@ -224,20 +224,20 @@ def recommend_similar_by_predicted_rating(P: np.ndarray, Q: np.ndarray, item_avg
 st.sidebar.header("Data options")
 use_sample = st.sidebar.checkbox("Use sample MovieLens (small) ratings.dat file", True)
 
-# if use_sample:
-#     # Small embedded sample (first 3000 rows would be fine; but keep tiny for speed)
-#     # For real use, place ratings.dat in data/ and uncheck sample
-#     sample_text = """1::1193::5::978300760
-# 1::661::3::978302109
-# 1::914::3::978301968
-# 1::3408::4::978300275
-# 1::2355::5::978824291
-# 2::1193::3::978298413
-# 2::661::4::978298377
-# 2::914::2::978298478
-# 3::1193::4::978220179
-# 3::661::5::978220179
-# """
+if use_sample:
+    # Small embedded sample (first 3000 rows would be fine; but keep tiny for speed)
+    # For real use, place ratings.dat in data/ and uncheck sample
+    sample_text = """1::1193::5::978300760
+1::661::3::978302109
+1::914::3::978301968
+1::3408::4::978300275
+1::2355::5::978824291
+2::1193::3::978298413
+2::661::4::978298377
+2::914::2::978298478
+3::1193::4::978220179
+3::661::5::978220179
+"""
 if use_sample:
     uploaded_file = StringIO(sample_text)
     st.sidebar.write("Using a tiny embedded sample. For better learning, upload the MovieLens 100k ratings.dat.")
