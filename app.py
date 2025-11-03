@@ -359,7 +359,7 @@ if all(k in st.session_state for k in ['P', 'Q', 'item_avgs', 'user_effects', 'R
         st.write(f"Top {top_n} movies whose predicted rating for user {user_input} is closest to movie {movie_input}:")
         st.dataframe(df_rec.reset_index(drop=True))
 
-    st.markdown("### Notes / Teaching points")
+    st.markdown("### Notes / Learning points")
     st.markdown("""
       - The dense R matrix was built after remapping IDs to contiguous indices; this is necessary for small educational examples.
       - Item averages & user effects were computed explicitly and you can toggle adding Laplace noise to see how they change.
@@ -375,4 +375,4 @@ else:
 # --------------------------------- Footer -----------------------------------
 ###############################################################################
 st.markdown("---")
-st.markdown("**Educational app**: Manual MF + Laplace noise. Not production DP. Intended for learning the mechanics.")
+# st.markdown("**Educational app**: Manual MF + Laplace noise. Not production DP. Intended for learning the mechanics.")
